@@ -25,3 +25,23 @@ body {
 #answerText{
   font-style: italic;
 }
+#glossContainer{
+  background-color: rgb(200,255,225);
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+
+}
+.gloss{
+  font-weight: bold;
+  transition: opacity 1s;
+  margin: 0.5rem 1% 0 0;
+  width: 19.2%;
+
+}
+
+.title{
+  text-align: center;
+  font-size: 1.5rem;
+  line-height:2;
+  margin-top:1rem;
+}

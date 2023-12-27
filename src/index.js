@@ -20,7 +20,6 @@ initialize();
 
 function initialize(){
     messageSpace.innerHTML = '';
-    console.log('testing', glossHolder)
     
 
     buildPromoptList();
@@ -32,11 +31,7 @@ function initialize(){
       listHolder.innerHTML = promptList;
     }
 
-    
-    // if (glossHolder) {
-    //     console.log('glossArray', glossHolder, glossArray);
-    //   glossHolder.innerHTML = glossList;
-    // }
+
     
 }
 
@@ -58,8 +53,6 @@ function buildPromoptList() {
 function buildGlossList(arr) {
     //get rid of old glossList
 
-    console.log('glossCheck', arr, document.getElementById('glossListHolder'));
-
     if(document.getElementById('glossListHolder')){
         //we already made it, so remove it. 
         document.getElementById('glossListHolder').innerHTML = '';
@@ -73,6 +66,7 @@ function buildGlossList(arr) {
 
     listItem.innerText = thisGloss;
     listItem.id = 'gloss-' + p;
+    listItem.classList.add('gloss');
     listItem.classList.add('unfound');
     listItem.classList.remove('found');
     listItem.classList.remove('used');
@@ -90,8 +84,8 @@ function buildGlossList(arr) {
     listHolder.appendChild(listItem);
   }
   const glossContainer = document.getElementById("glossListHolder");
-  let glossFooter = document.getElementById('glossFooter');
- glossFooter.insertBefore(listHolder,null);
+  let glossMarker = document.getElementById('glossMarker');
+ glossMarker.insertBefore(listHolder,null);
 
  // document.body.insertBefore(listHolder, null);
 }
@@ -103,14 +97,14 @@ function selectGloss(gloss) {
 
 
   if (answerArray.includes(gloss)) {
-    // console.log(
-    //   "includes gloss.  workingAnswer ",
-    //   workingAnswer,
-    //   "gloss",
-    //   gloss,
-    //   "answerArray",
-    //   answerArray
-    // );
+    console.log(
+      "includes gloss.  workingAnswer ",
+      workingAnswer,
+      "gloss",
+      gloss,
+      "answerArray",
+      answerArray
+    );
     //we've clicked on this before
     //deselect it or add it
     let glossIndex = answerArray.indexOf(gloss);
@@ -138,7 +132,7 @@ function selectGloss(gloss) {
     }
 
   }
-
+console.log('right before updating newAnswer', newAnswer, glossArray, promptArray);
   answerSpace.innerHTML = newAnswer;
   //validate answer.
   let answerCheck = validateAnswer(newAnswer);
@@ -152,7 +146,7 @@ function selectGloss(gloss) {
         for(let g = 0 ; g < glossArray.length ; g++){
             let thisGloss = glossArray[g];
             if(thisGloss === thisAnswerGloss){
-                // console.log('checking gloss match', thisGloss, thisAnswerGloss);
+                console.log('checking gloss match', thisGloss, thisAnswerGloss);
                 // let glossIndex = glossArray.indexOf(thisGloss);
                 // glossArray.splice(glossIndex, 1);
                 //remove onclick action for this one and make it grey
