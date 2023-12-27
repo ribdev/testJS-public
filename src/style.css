@@ -1,4 +1,27 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(155,255,200);
+
+}
+
+.found{
+  color: blue;
+  text-decoration: line-through;
+}
+.unfound{
+  color: black;
+}
+.used{
+  color: grey;
+}
+
+#answerWorkspace{
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 2;
+  margin-top: 1rem;
+}
+#answerText{
+  font-style: italic;
 }
